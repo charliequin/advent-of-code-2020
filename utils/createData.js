@@ -13,15 +13,15 @@ const readData = fileName => {
 };
 
 const writeFile = (dataArr, fileName) => {
-  const mappedArr = dataArr.map(str => `'${str}'`);
-  fs.appendFile(fileName, `[${mappedArr}]`, err => {
+  const formatData = dataArr.map(str => `'${str}'`);
+  fs.appendFile(fileName, `[${formatData}]`, err => {
     if (err) throw err;
   });
 };
 
-const createData = (path, newFileName) => {
+const createData = (path, fileName) => {
   const data = readData(path);
-  return writeFile(data, newFileName);
+  return writeFile(data, fileName);
 };
 
 module.exports = { createData };
