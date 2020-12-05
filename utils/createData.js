@@ -1,10 +1,5 @@
 const fs = require('fs');
 
-const dataArr = fs
-  .readFileSync('./data.txt')
-  .toString()
-  .split('\n');
-
 const readData = fileName => {
   return fs
     .readFileSync(fileName)
@@ -24,4 +19,4 @@ const createData = (path, fileName) => {
   return writeFile(data, fileName);
 };
 
-module.exports = { createData };
+module.exports = { createData, readData };
