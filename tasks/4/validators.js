@@ -38,8 +38,7 @@ const valHeight = value => {
 
 const valHair = value => {
   const validation = new RegExp('^#([a-fA-F0-9]{6}|[a-fA-F0-9]{3})$');
-  if (validation.test(value)) return true;
-  return false;
+  return validation.test(value);
 };
 
 const valEye = value => {
@@ -49,8 +48,7 @@ const valEye = value => {
 
 const valId = value => {
   const validation = new RegExp('^(?!0{3})[0-9]{9}$');
-  if (validation.test(value)) return true;
-  return false;
+  return validation.test(value);
 };
 
 module.exports = { valDates, valHeight, valHair, valEye, valId };
