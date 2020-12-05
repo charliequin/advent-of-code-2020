@@ -37,9 +37,8 @@ const createData = (path, fileName) => {
   return writeFile(data, fileName);
 };
 
-const passportKeys = ['byr', 'iyr', 'eyr', 'hgt', 'hcl', 'ecl', 'pid'];
-
-const verifyPassports = (dataArr, passportKeys, partNum) => {
+const verifyPassports = (dataArr, partNum) => {
+  const passportKeys = ['byr', 'iyr', 'eyr', 'hgt', 'hcl', 'ecl', 'pid'];
   let validPassports = 0;
 
   dataArr.map(passport => {
@@ -56,16 +55,17 @@ const verifyPassports = (dataArr, passportKeys, partNum) => {
       return birthYear && issueYear && expiryYear && height && hair && eye && id;
     };
 
-    if (partNum === 0) {
-      if (hasRequiredKeys) {
-        validPassports += 1;
-      }
-    }
-
-    if (partNum === 1) {
-      if (hasRequiredKeys && hasValidValues(passport)) {
-        validPassports += 1;
-      }
+    switch (partNum) {
+      case 0:
+        if (hasRequiredKeys) {
+          return (validPassports += 1);
+        }
+      case 1:
+        if (hasRequiredKeys && hasValidValues(passport)) {
+          return (validPassports += 1);
+        }
+      default:
+        return;
     }
   });
 
@@ -73,9 +73,9 @@ const verifyPassports = (dataArr, passportKeys, partNum) => {
 };
 
 // Answer 219
-const partOne = verifyPassports(data, passportKeys, 0);
+const partOne = verifyPassports(data, 0);
 
 // Answer 127
-const partTwo = verifyPassports(data, passportKeys, 1);
+const partTwo = verifyPassports(data, 1);
 
 module.exports = { partOne, partTwo };
