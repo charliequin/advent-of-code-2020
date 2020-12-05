@@ -38,20 +38,20 @@ hcl:#cfa07d eyr:2025 pid:166559648
 iyr:2011 ecl:brn hgt:59in
 ```
 
-The first passport is valid - all eight fields are present. The second passport is invalid - it is missing hgt (the Height field).
+The first passport is valid - all eight fields are present. The second passport is invalid - it is missing `hgt` (the Height field).
 
-The third passport is interesting; the only missing field is cid, so it looks like data from North Pole Credentials, not a passport at all! Surely, nobody would mind if you made the system temporarily ignore missing cid fields. Treat this "passport" as valid.
+The third passport is interesting; the only missing field is `cid`, so it looks like data from North Pole Credentials, not a passport at all! Surely, nobody would mind if you made the system temporarily ignore missing `cid` fields. Treat this "passport" as valid.
 
-The fourth passport is missing two fields, cid and byr. Missing cid is fine, but missing any other field is not, so this passport is invalid.
+The fourth passport is missing two fields, `cid` and `byr`. Missing `cid` is fine, but missing any other field is not, so this passport is invalid.
 
 According to the above rules, your improved system would report `2` valid passports.
 
-Count the number of valid passports - those that have all required fields. Treat cid as optional. In your batch file, how many passports are valid?
+Count the number of valid passports - those that have all required fields. Treat `cid` as optional. In your batch file, how many passports are valid?
 
 ## Part Two
 The line is moving more quickly now, but you overhear airport security talking about how passports with invalid data are getting through. Better add some data validation, quick!
 
-You can continue to ignore the cid field, but each other field has strict rules about what values are valid for automatic validation:
+You can continue to ignore the `cid` field, but each other field has strict rules about what values are valid for automatic validation:
 
 ```
 byr (Birth Year) - four digits; at least 1920 and at most 2002.
@@ -117,4 +117,4 @@ eyr:2022
 iyr:2010 hgt:158cm hcl:#b6652a ecl:blu byr:1944 eyr:2021 pid:093154719
 ```
 
-Count the number of valid passports - those that have all required fields and valid values. Continue to treat cid as optional. In your batch file, how many passports are valid?
+Count the number of valid passports - those that have all required fields and valid values. Continue to treat `cid` as optional. In your batch file, how many passports are valid?
